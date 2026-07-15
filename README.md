@@ -2,7 +2,7 @@
 
 An interactive React and TypeScript learning repository built for interview preparation and quick revision. Instead of presenting concepts only as notes, the project demonstrates them through small, focused components that can be opened from a lesson menu and tested in the browser.
 
-The examples progress from React fundamentals—props, state, hooks, and reconciliation—to application-level topics such as Context, Redux, server-state management, routing, TypeScript patterns, and performance optimization.
+The examples progress from React fundamentals—props, state, hooks, and reconciliation—to application-level topics such as Context, Redux, server-state management, routing, TypeScript patterns, performance optimization, form inputs, and browser storage.
 
 ## What is being done in this repository?
 
@@ -51,6 +51,11 @@ The examples progress from React fundamentals—props, state, hooks, and reconci
 | Generic component | A TypeScript component that preserves type safety while working with several data types. |
 | Code splitting | Loads part of the JavaScript bundle only when that part of the UI is needed. |
 | List virtualization | Renders only visible rows from a large collection to reduce DOM work. |
+| Controlled input | A form element whose current value is stored in React state and updated through an event handler. |
+| Uncontrolled input | A form element that keeps its value in the DOM and is read when needed, commonly through a ref. |
+| `localStorage` | Persistent browser key-value storage that remains available after refreshes, tab closures, and browser restarts. |
+| `sessionStorage` | Browser key-value storage scoped to the current tab and cleared when that tab's session ends. |
+| Cookie | A small string stored by the browser that can have an expiry and may be sent with matching HTTP requests. |
 
 ## Step-by-step guide
 
@@ -128,6 +133,18 @@ Supporting route components include `Layout.tsx`, `Home.tsx`, `Users .tsx`, `Use
 - It loads `HeavyComponent.tsx` on demand with `React.lazy` and displays a `Suspense` fallback.
 - It compares mounting 10,000 ordinary DOM rows with rendering a virtualized list through `react-window`.
 - It records approximate render timing to make the difference observable.
+
+### Step 14 — Controlled Inputs, Uncontrolled Inputs, and Browser Storage
+
+`Step14_ControlledStorage.tsx` compares two ways of working with form elements and three browser persistence mechanisms:
+
+- The controlled input keeps its value in React state and updates it on every `onChange` event, making React the source of truth.
+- The uncontrolled input keeps its live value in the DOM. A `useRef` provides direct access when the user clicks the read button.
+- The storage demo saves the controlled value under `demoKey` and reads it back from `localStorage`, `sessionStorage`, and a cookie.
+- Separate React state values display the latest value read from each storage mechanism.
+- The cookie example safely encodes/decodes its value, uses a one-day lifetime, and searches `document.cookie` for the matching key.
+
+This step highlights the persistence differences: `localStorage` survives browser restarts, `sessionStorage` lasts for the current tab session, and cookies support expiry rules and can also participate in HTTP communication.
 
 ## Application structure
 

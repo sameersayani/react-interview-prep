@@ -12,6 +12,7 @@ import Step10 from './steps/Step10_TanStackQuery';
 import Step11 from './steps/Step11_Routing';
 import Step12 from './steps/Step12_TypeScriptPatterns';
 import Step13 from './steps/Step13_Performance';
+import Step14 from './steps/Step14_ControlledStorage';
 
 const steps: Record<string, React.ComponentType> = { // Maps visible labels to components; ComponentType means each value is renderable.
   'Step 1: Props & State': Step01,
@@ -27,6 +28,7 @@ const steps: Record<string, React.ComponentType> = { // Maps visible labels to c
   'Step 11: Routing': Step11,
   'Step 12: TypeScript Pattern': Step12,
   'Step 13: Performance' : Step13,
+  'Step 14: Controller UnControlled Storage': Step14
 };
 
 function App() { // Root component coordinates the sidebar and selected lesson.
